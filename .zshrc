@@ -1,6 +1,8 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+export PATH="$HOME/bin:$PATH"
+
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/avg/.oh-my-zsh"
 
@@ -104,3 +106,6 @@ export POWERLEVEL9K_DIR_HOME_FOREGROUND=$POWERLEVEL9K_DIR_COLOR
 export POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND=$POWERLEVEL9K_DIR_COLOR
 export POWERLEVEL9K_DIR_DEFAULT_FOREGROUND=$POWERLEVEL9K_DIR_COLOR
 export POWERLEVEL9K_DIR_ETC_FOREGROUND=$POWERLEVEL9K_DIR_COLOR
+
+export SDKMAN_DIR="/Users/avg/.sdkman"
+[[ -s "/Users/avg/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/avg/.sdkman/bin/sdkman-init.sh"
