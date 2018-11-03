@@ -109,3 +109,5 @@ export POWERLEVEL9K_DIR_ETC_FOREGROUND=$POWERLEVEL9K_DIR_COLOR
 
 export SDKMAN_DIR="/Users/avg/.sdkman"
 [[ -s "/Users/avg/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/avg/.sdkman/bin/sdkman-init.sh"
+
+export GOPATH="/Users/avg/projects/go"
