@@ -17,7 +17,8 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(javascript
+   '(go
+     javascript
      html
      markdown
      clojure
@@ -205,7 +206,7 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-emacs-command-key "SPC"
 
    ;; The key used for Vim Ex commands (default ":")
-   dotspacemacs-ex-command-key ":"
+  dotspacemacs-ex-command-key ":"
 
    ;; The leader key accessible in `emacs state' and `insert state'
    ;; (default "M-m")
@@ -335,7 +336,7 @@ It should only modify the values of Spacemacs settings."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
-   dotspacemacs-line-numbers t
+   dotspacemacs-line-numbers 'relative
 
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
@@ -444,6 +445,7 @@ It should only modify the values of Spacemacs settings."
 (defun setup-keybindings ()
   (define-key evil-normal-state-map (kbd "SPC RET") 'cider-eval-defun-at-point))
 
+
 (defun dotspacemacs/user-env ()
   "Environment variables setup.
 This function defines the environment variables for your Emacs session. By
@@ -497,7 +499,27 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (json-navigator hierarchy json-mode json-snatcher json-reformat company-tern dash-functional yasnippet-snippets ws-butler winum which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tern tagedit symon string-inflection spaceline-all-the-icons smeargle slim-mode scss-mode sass-mode reveal-in-osx-finder restart-emacs rainbow-delimiters pug-mode prettier-js popwin persp-mode pcre2el password-generator paradox overseer osx-trash osx-dictionary org-plus-contrib org-bullets open-junk-file neotree nameless move-text mmm-mode markdown-toc magit-svn magit-gitflow macrostep lsp-javascript-typescript lorem-ipsum livid-mode link-hint launchctl js2-refactor js-doc indent-guide impatient-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-purpose helm-projectile helm-mode-manager helm-make helm-gtags helm-gitignore helm-git-grep helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gitignore-templates gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md ggtags fuzzy font-lock+ flyspell-correct-helm flycheck-pos-tip flycheck-joker flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-smartparens evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu emmet-mode elisp-slime-nav editorconfig dumb-jump dotenv-mode doom-modeline diminish counsel-projectile counsel-gtags company-web company-statistics company-quickhelp column-enforce-mode clojure-snippets clojure-cheatsheet clj-refactor clean-aindent-mode cider-eval-sexp-fu centered-cursor-mode auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent add-node-modules-path ace-window ace-link ace-jump-helm-line ac-ispell))))
+    (lsp-go lsp-mode godoctor go-tag go-rename go-impl go-guru go-gen-test go-fill-struct go-eldoc flycheck-gometalinter flycheck-golangci-lint company-go go-mode json-navigator hierarchy json-mode json-snatcher json-reformat company-tern dash-functional yasnippet-snippets ws-butler winum which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tern tagedit symon string-inflection spaceline-all-the-icons smeargle slim-mode scss-mode sass-mode reveal-in-osx-finder restart-emacs rainbow-delimiters pug-mode prettier-js popwin persp-mode pcre2el password-generator paradox overseer osx-trash osx-dictionary org-plus-contrib org-bullets open-junk-file neotree nameless move-text mmm-mode markdown-toc magit-svn magit-gitflow macrostep lsp-javascript-typescript lorem-ipsum livid-mode link-hint launchctl js2-refactor js-doc indent-guide impatient-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-purpose helm-projectile helm-mode-manager helm-make helm-gtags helm-gitignore helm-git-grep helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gitignore-templates gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md ggtags fuzzy font-lock+ flyspell-correct-helm flycheck-pos-tip flycheck-joker flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-smartparens evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu emmet-mode elisp-slime-nav editorconfig dumb-jump dotenv-mode doom-modeline diminish counsel-projectile counsel-gtags company-web company-statistics company-quickhelp column-enforce-mode clojure-snippets clojure-cheatsheet clj-refactor clean-aindent-mode cider-eval-sexp-fu centered-cursor-mode auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent add-node-modules-path ace-window ace-link ace-jump-helm-line ac-ispell))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+)
+(defun dotspacemacs/emacs-custom-settings ()
+  "Emacs custom settings.
+This is an auto-generated function, do not modify its content directly, use
+Emacs customize menu instead.
+This function is called at the very end of Spacemacs initialization."
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (define-word yasnippet-snippets ws-butler winum which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit symon string-inflection spaceline-all-the-icons smeargle slim-mode scss-mode sass-mode reveal-in-osx-finder restart-emacs rainbow-delimiters pug-mode prettier-js popwin persp-mode pcre2el password-generator paradox overseer osx-trash osx-dictionary org-plus-contrib org-bullets open-junk-file neotree nameless move-text mmm-mode markdown-toc magit-svn magit-gitflow macrostep lorem-ipsum livid-mode link-hint launchctl json-navigator json-mode js2-refactor js-doc indent-guide impatient-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-purpose helm-projectile helm-mode-manager helm-make helm-gitignore helm-git-grep helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio godoctor go-tag go-rename go-impl go-guru go-gen-test go-fill-struct go-eldoc gitignore-templates gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy font-lock+ flyspell-correct-helm flycheck-pos-tip flycheck-joker flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-smartparens evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu emmet-mode elisp-slime-nav editorconfig dumb-jump dotenv-mode doom-modeline diminish counsel-projectile company-web company-tern company-statistics company-quickhelp company-go column-enforce-mode clojure-snippets clojure-cheatsheet clj-refactor clean-aindent-mode cider-eval-sexp-fu centered-cursor-mode auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent ace-window ace-link ace-jump-helm-line ac-ispell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
