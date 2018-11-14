@@ -6,8 +6,11 @@ export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 export PATH="$HOME/bin:$PATH"
 
 export EDITOR=vim
+
 alias gs="git status"
 alias gl='git log --oneline --decorate --graph'
+alias gd='git diff'
+
 alias e="emacs -nw"
 
 export SDKMAN_DIR="/Users/avg/.sdkman"
