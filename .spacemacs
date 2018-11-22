@@ -417,6 +417,7 @@ It should only modify the values of Spacemacs settings."
 
 (defun init-clojure-mode ()
   (setq clojure-indent-style :always-indent)
+  (setq clojure-align-forms-automatically t)
   (define-clojure-indent
     (->  0)
     (->> 0)
