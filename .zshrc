@@ -19,3 +19,5 @@ export SDKMAN_DIR="/Users/avg/.sdkman"
 
 export GOPATH="/Users/avg/projects/go"
 export PATH="$PATH:$GOPATH/bin"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
