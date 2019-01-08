@@ -13,6 +13,7 @@ alias gl='git log --oneline --decorate --graph'
 alias gd='git diff'
 
 alias e="emacs -nw"
+alias :q="exit"
 
 export SDKMAN_DIR="/Users/avg/.sdkman"
 [[ -s "/Users/avg/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/avg/.sdkman/bin/sdkman-init.sh"
@@ -21,3 +22,5 @@ export GOPATH="/Users/avg/projects/go"
 export PATH="$PATH:$GOPATH/bin"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+[[ $TERM == "alacritty" ]] && exec tmux
