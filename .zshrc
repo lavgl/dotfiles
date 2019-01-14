@@ -24,3 +24,5 @@ export PATH="$PATH:$GOPATH/bin"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 [[ $TERM == "alacritty" ]] && exec tmux
+
+bindkey "^?" backward-delete-char
