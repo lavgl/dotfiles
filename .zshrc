@@ -15,14 +15,26 @@ alias gd='git diff'
 alias e="emacs -nw"
 alias :q="exit"
 
+function db() {
+	s="$1"
+	echo "Connecting to service $s"
+	pgcli service="$s"
+}
+
 export SDKMAN_DIR="/Users/avg/.sdkman"
 [[ -s "/Users/avg/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/avg/.sdkman/bin/sdkman-init.sh"
 
 export GOPATH="/Users/avg/projects/go"
 export PATH="$PATH:$GOPATH/bin"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
+[ -f /usr/local/etc/profile.d/z.sh ] && . /usr/local/etc/profile.d/z.sh
+
 
 [[ $TERM == "alacritty" ]] && exec tmux
 
 bindkey "^?" backward-delete-char
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
