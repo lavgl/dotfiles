@@ -11,6 +11,8 @@ export EDITOR=vim
 alias gs="git status"
 alias gl='git log --oneline --decorate --graph'
 alias gd='git diff'
+alias gp='git pull'
+alias go='git checkout '
 
 alias e="emacs -nw"
 alias :q="exit"
