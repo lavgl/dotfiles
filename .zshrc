@@ -16,6 +16,7 @@ alias go='git checkout '
 
 alias e="emacs -nw"
 alias :q="exit"
+alias xp="xmllint --format - >"
 
 function db() {
 	s="$1"
