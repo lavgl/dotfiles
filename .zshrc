@@ -41,3 +41,13 @@ bindkey "^?" backward-delete-char
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+
+function _POST { curl -n -H 'Content-Type: application/json' -XPOST "$@" }
+alias POST='noglob _POST'
+function _PUT { curl -n -H 'Content-Type: application/json' -XPUT "$@" }
+alias PUT='noglob _PUT'
+function _GET { curl -n -H 'Content-Type: application/json' -XGET "$@" }
+alias GET='noglob _GET'
+function _DELETE { curl -n -H 'Content-Type: application/json' -XDELETE "$@" }
+alias DELETE='noglob _DELETE'
