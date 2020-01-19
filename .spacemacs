@@ -23,7 +23,10 @@ This function should only modify configuration layer settings."
      javascript
      html
      markdown
-     clojure
+     (clojure :variables
+              clojure-enable-linters '(
+                                       ;; clj-kondo
+                                       joker))
      ;; scheme
      ;; helm
      ivy
@@ -72,7 +75,7 @@ This function should only modify configuration layer settings."
    ;; installs only the used packages but won't delete unused ones. `all'
    ;; installs *all* packages supported by Spacemacs and never uninstalls them.
    ;; (default is `used-only')
-   dotspacemacs-install-packages 'used-only))
+   dotspacemacs-install-packages 'used-only)) 
 
 (defun dotspacemacs/init ()
   "Initialization:
@@ -443,9 +446,9 @@ It should only modify the values of Spacemacs settings."
     (mod 0)
     (rem 0)))
 
-(defun setup-flycheck ()
-  (require 'flycheck-joker)
-  (add-hook 'clojure-mode-hook #'flycheck-mode))
+;; (defun setup-flycheck ()
+;;   (require 'flycheck-joker)
+;;   (add-hook 'clojure-mode-hook #'flycheck-mode))
 
 (defun setup-geiser ()
   (require 'geiser)
@@ -485,7 +488,7 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
-  (setup-flycheck)
+  ;; (setup-flycheck)
   (setup-keybindings)
 
   (add-hook 'clojure-mode-hook #'init-clojure-mode)
