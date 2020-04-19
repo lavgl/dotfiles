@@ -126,3 +126,13 @@ alias kd="kafkacat -b 'reg1.mk.prod:9092,reg2.mk.prod:9092,reg3.mk.prod:9092'"
 
 alias dokku='bash $HOME/.dokku/contrib/dokku_client.sh'
 export DOKKU_HOST='172.105.85.164'
+
+source /Users/avg/Library/Preferences/org.dystroy.broot/launcher/bash/br
+
+alias python2='/usr/local/opt/python@2/bin/python2'
+alias python3="/usr/local/opt/python@3/bin/python3"
+alias python=python3
+alias pip2="/usr/local/bin/pip2"
+alias pip3="/usr/local/opt/python@3/bin/pip3"
+alias pip=pip3
+alias ra=ranger
