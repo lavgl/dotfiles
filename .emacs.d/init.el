@@ -64,7 +64,7 @@
   :init
   (marginalia-mode)
   :bind (:map minibuffer-local-map
-	      ("M-A" . marginalia-cycle)))
+              ("M-A" . marginalia-cycle)))
 
 
 (use-package orderless

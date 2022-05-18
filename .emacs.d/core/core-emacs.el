@@ -1,5 +1,6 @@
 (defun config/init-emacs () 
   (setq-default indent-tabs-mode nil)
+
   (use-package restart-emacs
     :config
     (general-define-key

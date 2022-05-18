@@ -16,12 +16,11 @@
   (use-package doom-themes
     :config
     (setq doom-themes-enable-bold t
-	    doom-themes-enable-italic t) 
+          doom-themes-enable-italic t) 
     (load-theme 'doom-one t))
 
 
   (use-package zoom
-    :diminish
     :custom
     ;; golden ratio
     (zoom-size '(0.618 . 0.618))
@@ -29,8 +28,10 @@
     (zoom-mode 1)) 
 
 
-  (toggle-frame-fullscreen)
+  ;; NOTE: launch emacs in fullscreen mode (emacsclient too)
+  (add-to-list 'default-frame-alist '(fullscreen . fullboth))
 
+  
   (use-package doom-modeline
     :config (doom-modeline-mode 1)))
 

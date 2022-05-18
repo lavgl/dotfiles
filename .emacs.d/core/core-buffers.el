@@ -4,7 +4,12 @@
    :prefix "SPC"
    "TAB" 'avg/alternate-buffer
    "fed" 'avg/find-dotfile
-   "bd" 'kill-this-buffer))
+   "bd" 'avg/kill-this-buffer))
+
+
+(defun avg/kill-this-buffer ()
+  (interactive)
+  (kill-buffer (current-buffer)))
 
 
 ;; https://github.com/syl20bnr/spacemacs/blob/532ad2567cba1d57d09e102c385315e7cfa829ec/core/core-funcs.el#L331
