@@ -1,8 +1,9 @@
 (defun config/init-help ()
   (use-package helpful
     :bind (("C-h f" . 'helpful-callable)
-	   ("C-h v" . 'helpful-variable)
-	   ("C-h k" . 'helpful-key)))
+           ("C-h v" . 'helpful-variable)
+           ("C-h k" . 'helpful-key)
+           ("C-c C-d" . 'helpful-at-point)))
 
   (use-package elisp-demos
     :config
