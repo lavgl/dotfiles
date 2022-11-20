@@ -10,6 +10,7 @@
 (setq use-package-verbose t)
 
 
+;; TODO: why exactly do I need this?
 (use-package exec-path-from-shell
   :disabled
   :config
@@ -120,9 +121,11 @@
   :hook (smartparens-enabled . evil-smartparens-mode))
 
 
+;; TODO: I needed this for vterm, right?
 (use-package use-package-chords)
 
 
+;; TODO: do I need vterm? I never use it with spacemacs
 (use-package vterm
   :commands vterm
   :config
@@ -146,6 +149,10 @@
    "meb" 'eval-buffer))
 
 
+(use-package eval-sexp-fu
+  :hook (emacs-lisp-mode . turn-on-eval-sexp-fu-flash-mode))
+
+
 (use-package hl-todo
   :config
   (global-hl-todo-mode))
@@ -164,6 +171,8 @@
 
 
 (use-package paren-face
+  ;; TODO: check this out
+  :disabled
   :config
   (global-paren-face-mode))
 
@@ -188,7 +197,7 @@
  '(custom-safe-themes
    '("79586dc4eb374231af28bbc36ba0880ed8e270249b07f814b0e6555bdcb71fab" default))
  '(package-selected-packages
-   '(hl-todo lisp-extra-font-lock ocp-indent svg-tag-mode paren-face highlight-parentheses utop merlin tuareg caml discover-my-major marginalia orderless suggest evil-lisp-state rainbow-delimiters use-package-chords eros esup elisp-demos elisp-demo helpful doom-modeline consult vertico elisp-format restart-emacs doom-themes undo-fu undoo-tree elixir-mode company company-mode vterm cider clojure-mode-extra-font-locking clojure-mode exec-path-from-shell lsp-mode zig-mode zoom arduino-mode counsel-projectile evil-collection evil-smartparens evil-surround ivy-hydra evil-nerd-commenter golden-ratio projectile drarcula-theme darcula-theme command-log-mode winum which-key counsel ivy evil use-package general avy)))
+   '(eval-sexp-fu hl-todo lisp-extra-font-lock ocp-indent svg-tag-mode paren-face highlight-parentheses utop merlin tuareg caml discover-my-major marginalia orderless suggest evil-lisp-state rainbow-delimiters use-package-chords eros esup elisp-demos elisp-demo helpful doom-modeline consult vertico elisp-format restart-emacs doom-themes undo-fu undoo-tree elixir-mode company company-mode vterm cider clojure-mode-extra-font-locking clojure-mode exec-path-from-shell lsp-mode zig-mode zoom arduino-mode counsel-projectile evil-collection evil-smartparens evil-surround ivy-hydra evil-nerd-commenter golden-ratio projectile drarcula-theme darcula-theme command-log-mode winum which-key counsel ivy evil use-package general avy)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
