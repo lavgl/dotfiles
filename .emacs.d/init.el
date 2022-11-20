@@ -1,8 +1,9 @@
-;; TODO: move the whole config into one file!
-
 (package-initialize)
 
 (load-file (concat user-emacs-directory "core/core-load-paths.el"))
+
+
+;; TODO: move the whole config into one file!
 
 
 (setq use-package-always-ensure t)
@@ -150,7 +151,7 @@
 
 
 (use-package eval-sexp-fu
-  :hook (emacs-lisp-mode . turn-on-eval-sexp-fu-flash-mode))
+  :hook ((emacs-lisp-mode clojure-mode) . turn-on-eval-sexp-fu-flash-mode))
 
 
 (use-package hl-todo
@@ -184,10 +185,89 @@
    "gc" 'evilnc-comment-operator))
 
 
-;; TODO: what is this package for? :)
-(use-package suggest
-  :commands suggest)
+(use-package flycheck
+  :init (global-flycheck-mode))
 
+
+;; clojure
+
+
+(use-package clojure-mode
+  ;; TODO: don't forget about me :)
+  ;; :hook (clojure-mode . avg/init-clojure-mode)
+  :config
+  (general-define-key
+   :keymaps '(clojure-mode-map)
+   :states '(normal visual)
+   :prefix ","
+   "=l" 'clojure-align)
+
+  (general-define-key
+   :keymaps '(clojure-mode-map)
+   :states '(normal visual)
+   :prefix "SPC"))
+
+
+(use-package cider-eval-sexp-fu
+  :after eval-sexp-fu)
+
+;; (prog-mode cider-repl-mode)
+
+(use-package cider
+  :config
+  (general-define-key
+   :keymaps '(clojure-mode-map)
+   :states '(normal visual)
+   :prefix "SPC"
+   "mscj" 'cider-connect-clj
+   "msa"  'cider-switch-to-repl-buffer
+   "mee" 'cider-eval-last-sexp
+   "me;" 'cider-eval-defun-to-comment
+   "RET" 'cider-eval-defun-at-point)
+
+  (general-define-key
+   :keymaps '(cider-repl-mode-map)
+   :states '(normal visual)
+   :prefix "SPC"
+   ;; TODO: fix, it doesn't fully work
+   "msl" 'avg/cider-find-and-clear-repl-buffer)
+
+  (add-hook 'cider-repl-mode-hook #'turn-on-smartparens-strict-mode))
+
+
+(use-package flycheck-clj-kondo)
+
+
+;; TODO: verify that I really want this
+(defun avg/init-clojure-mode ()
+  (setq clojure-indent-style :always-indent)
+  (setq clojure-align-forms-automatically t)
+  (define-clojure-indent
+    (->  0)
+    (->> 0)
+    (some-> 0)
+    (some->> 0)
+    (as-> 0)
+    (and 0)
+    (or  0)
+    (>   0)
+    (<   0)
+    (>=  0)
+    (<=  0)
+    (=   0)
+    (not= 0)
+    (+   0)
+    (-   0)
+    (*   0)
+    (/   0)
+    (mod 0)
+    (rem 0)))
+
+
+;; https://github.com/syl20bnr/spacemacs/blob/3ba43e29165fb17d39baab528d63a63e907fa81a/layers/%2Blang/clojure/funcs.el#L252
+(defun avg/cider-find-and-clear-repl-buffer ()
+  (interactive)
+  (call-interactively 'cider-find-and-clear-repl-output))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -197,7 +277,7 @@
  '(custom-safe-themes
    '("79586dc4eb374231af28bbc36ba0880ed8e270249b07f814b0e6555bdcb71fab" default))
  '(package-selected-packages
-   '(eval-sexp-fu hl-todo lisp-extra-font-lock ocp-indent svg-tag-mode paren-face highlight-parentheses utop merlin tuareg caml discover-my-major marginalia orderless suggest evil-lisp-state rainbow-delimiters use-package-chords eros esup elisp-demos elisp-demo helpful doom-modeline consult vertico elisp-format restart-emacs doom-themes undo-fu undoo-tree elixir-mode company company-mode vterm cider clojure-mode-extra-font-locking clojure-mode exec-path-from-shell lsp-mode zig-mode zoom arduino-mode counsel-projectile evil-collection evil-smartparens evil-surround ivy-hydra evil-nerd-commenter golden-ratio projectile drarcula-theme darcula-theme command-log-mode winum which-key counsel ivy evil use-package general avy)))
+   '(flycheck-clj-kondo flycheck cider-eval-sexp-fu eval-sexp-fu hl-todo lisp-extra-font-lock ocp-indent svg-tag-mode paren-face highlight-parentheses utop merlin tuareg caml discover-my-major marginalia orderless suggest evil-lisp-state rainbow-delimiters use-package-chords eros esup elisp-demos elisp-demo helpful doom-modeline consult vertico elisp-format restart-emacs doom-themes undo-fu undoo-tree elixir-mode company company-mode vterm cider clojure-mode-extra-font-locking clojure-mode exec-path-from-shell lsp-mode zig-mode zoom arduino-mode counsel-projectile evil-collection evil-smartparens evil-surround ivy-hydra evil-nerd-commenter golden-ratio projectile drarcula-theme darcula-theme command-log-mode winum which-key counsel ivy evil use-package general avy)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
