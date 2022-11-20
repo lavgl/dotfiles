@@ -1,10 +1,12 @@
+;; TODO: move the whole config into one file!
+
 (package-initialize)
 
 (load-file (concat user-emacs-directory "core/core-load-paths.el"))
 
 
-(setq use-package-always-ensure t) 
-(setq use-package-compute-statistics t) 
+(setq use-package-always-ensure t)
+(setq use-package-compute-statistics t)
 (setq use-package-verbose t)
 
 
@@ -17,10 +19,8 @@
 
 
 (require 'core)
-(require 'langs)
 
 (config/core-init)
-(config/init-langs)
 
 
 ;; NOTE: to be able to exit from minibuffer by one ESC
@@ -36,7 +36,7 @@
    :states '(normal visual)
    :prefix "SPC"
    "SPC" 'execute-extended-command
-   "ff" 'find-file)) 
+   "ff" 'find-file))
 
 
 (recentf-mode 1)
@@ -57,7 +57,7 @@
    :prefix "SPC"
    "ss" 'consult-line
    "bb" 'consult-buffer
-   "/" 'consult-ripgrep)) 
+   "/" 'consult-ripgrep))
 
 
 (use-package marginalia
@@ -76,32 +76,32 @@
 (use-package command-log-mode
   :init
   (setq command-log-mode-is-global t)
-  (setq command-log-mode-open-log-turns-on-mode t))  
+  (setq command-log-mode-open-log-turns-on-mode t))
 
 
 (use-package projectile
   :diminish
   :init
-  (setq projectile-sort-order 'recentf) 
+  (setq projectile-sort-order 'recentf)
   :config
   (projectile-mode)
   (general-define-key
    :states '(normal visual)
    :prefix "SPC"
    "pf" 'projectile-find-file
-   "pp" 'projectile-switch-project)) 
+   "pp" 'projectile-switch-project))
 
 
 (use-package smartparens
   :hook (prog-mode . turn-on-smartparens-strict-mode)
   :config
-  (require 'smartparens-config)) 
+  (require 'smartparens-config))
 
 
 (use-package evil-lisp-state
   ;; NOTE: this setup allows, for example, to type `SPC k w w`  to wrap thing twice
   ;; also, for example, `SPC k s s s` will do forward slurp for 3 times.
-  ;; otherwise, after `SPC k s` I need to press ESC and repeat the whole sequence `SPC k s` 
+  ;; otherwise, after `SPC k s` I need to press ESC and repeat the whole sequence `SPC k s`
   :init
   (setq evil-lisp-state-global t)
   :config
@@ -117,10 +117,10 @@
 
 
 (use-package evil-smartparens
-  :hook (smartparens-enabled . evil-smartparens-mode)) 
+  :hook (smartparens-enabled . evil-smartparens-mode))
 
 
-(use-package use-package-chords) 
+(use-package use-package-chords)
 
 
 (use-package vterm
@@ -131,7 +131,7 @@
 
   :chords ((" 1" . winum-select-window-1)
 	   (" 2" . winum-select-window-2)
-	   ("  " . execute-extended-command))) 
+	   ("  " . execute-extended-command)))
 
 
 (use-package eros
@@ -175,6 +175,7 @@
    "gc" 'evilnc-comment-operator))
 
 
+;; TODO: what is this package for? :)
 (use-package suggest
   :commands suggest)
 
